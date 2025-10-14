@@ -1,2 +1,31 @@
 # 42Nvim
-Most of 42 student prefer to use Neovim IDE, let's setup it now. 
+### Most of 42 student prefer to use Neovim IDE, let's setup it now. 
+
+Installation Guide
+## Nvim 
+- Extract nvim by using : `tar -xvzf nvim-linux-x86_64.tar.gz` 
+- You will get : nvim-linux-x86_64
+- Rename the file using :  `mv nvim-linux-x86_64 nvim` 
+- Move the nvim to your home directory using : `mv nvim ~`
+- Open the `.zshrc` and go the end of file and add : `export PATH=$PATH:$HOME/nvim/bin:`
+- Create a config folder fo nvim : `mkdir ~/.config/nvim`
+- Move the init.lua to config file using : `mv init.lua ~/config/nvim`
+- Create the plugin folder in nvim directory : `mkdir ~/.config/nvim/plugin`
+- Move the stdheader.vim to nvim/plugin : `mv stdheader.vim ~/.config/nvim/pluging`
+## Kitty 
+- Install kitty terminal : `curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin`
+- Move kitty to home directorty : `mv ~/.local/kitty.app ~/kitty`
+- Add this line to `.zshrc` : `export PATH=$PATH:$HOME/kitty/bin:`
+- Create the kitty config directory if it doesn’t exist : `mkdir -p ~/.config/kitty`
+- Move the kitty.conf file to config directory : `mv kitty.conf ~/.config/kitty/`
+
+- Make the kitty the main terminal and open it using the `ctrl + alt+ T` shortcut : 
+- Open setting 
+- Got to keyboard->View and Customize Shortcuts-> Scrole down -> Custom Shortcuts
+- Click the `+` 
+- `Name` : kitty terminal. 
+- `Command`: /home/\[your user]/kitty/bin/kitty
+- Click replace.
+- remember use the shortcut to opent kitty.
+
+                                                                            realized by achahi.
