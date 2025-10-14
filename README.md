@@ -3,7 +3,9 @@
 
 Installation Guide
 ## Nvim 
-- Extract nvim by using : `tar -xvzf nvim-linux-x86_64.tar.gz` 
+- Extract nvim by using :
+  ```bash
+  tar -xvzf nvim-linux-x86_64.tar.gz 
 - You will get : nvim-linux-x86_64
 - Rename the file using :  `mv nvim-linux-x86_64 nvim` 
 - Move the nvim to your home directory using : `mv nvim ~`
