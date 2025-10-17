@@ -14,18 +14,9 @@ Installation Guide
   ```bash
   mv nvim ~
 - Open the `.zshrc` and go the end of file and add : `export PATH=$PATH:$HOME/nvim/bin:` to the end of file.
-- Create a config folder fo nvim :
-  ```bash
-  mkdir ~/.config/nvim
-- Move the init.lua to config file using :
-  ```bash
-  mv init.lua ~/config/nvim
-- Create the plugin folder in nvim directory :
-  ```bash
-  mkdir ~/.config/nvim/plugin
-- Move the stdheader.vim to nvim/plugin :
-  ```bash
-  mv stdheader.vim ~/.config/nvim/pluging
+- extract the nvim config folder after moving it to .config director : 
+    ```bash
+    tar -xzf nvim.tar.gz 
 
 ## Kitty 
 - Install kitty terminal :
