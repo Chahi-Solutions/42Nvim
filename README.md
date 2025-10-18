@@ -1,7 +1,9 @@
 # 42Nvim
 ### Most of 42 student prefer to use Neovim IDE, let's setup it now. 
+<img width="1915" height="997" alt="Screenshot from 2025-10-18 16-27-34" src="https://github.com/user-attachments/assets/5dbc12fd-c779-4ed2-bc8e-b6a70b4e29fa" />
 
 Installation Guide
+
 ## Nvim 
 - Extract nvim by using :
   ```bash
