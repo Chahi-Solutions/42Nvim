@@ -44,4 +44,26 @@ Installation Guide
 - Click replace.
 - remember use the shortcut to opent kitty.
 
-                                                                            realized by achahi.
+
+
+
+# Nvim-Tree file explorer Guid :
+## Key Bindings (Inside nvim-tree)
+### Navigationh
+`j/k` or `↑/↓` - Move up/down.
+`s` - Open the file in right window.
+`gg` - Go to top
+`G` - Go to bottom
+`ctrl`+`w`+`w` : Default nvim-tree Focus Toggle
+### File Operations
+`a` - Create file/directory(add /)
+`d` - Delete file/directory
+`r` - Rename file/directory
+`x` - Cut file/directory
+`c` - Copy file/directory
+`p` - Paste file/directory
+
+### Tree Operations
+`Shift`+`H` - Display hidden files.
+`/` - Search files
+                                                                               realized by achahi.
