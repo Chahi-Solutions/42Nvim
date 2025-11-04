@@ -19,12 +19,11 @@ return {
 			'cpp', 'cxx', 'c++', 'hpp', 'hxx', 'h++', 'tpp', 'ipp'
 		},
 		cmd = {
-			'--enable-config',
 			'clangd',
 			'--header-insertion=never',
 			'-j=4',
-			'--background-index=never',
-			'--background-index-priority=never'
+			'--background-index',
+			'--background-index-priority=low'
 		}
 	},
 	lua_ls = {

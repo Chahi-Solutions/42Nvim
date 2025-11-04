@@ -1,61 +1,33 @@
+--[[
+-- NOTE: This is where your plugins go! put them in brackets like the following. Lazy will automatically pick them up and install them
+-- If you feel like this plugin is useful, feel free to git add commit push and make a pull request from your fork on GitHub.
+-- If there is a good, general use-case, I will merge it into the main branch :)
+-- There is another example, image-nvim.lua which is a (commented out) example of how plugins can be imported, with options.
+]]--
 return {
-  -- Neo-Tree file explorer
+  -- Add GitHub Copilot
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    keys = {
-      { "<C-S-e>", ":Neotree toggle<CR>", desc = "Toggle Neo-Tree" },
-    },
+    "github/copilot.vim",
+    event = "InsertEnter",
     config = function()
-      require("neo-tree").setup({
-        close_if_last_window = false,
-        popup_border_style = "rounded",
-        enable_git_status = true,
-        enable_diagnostics = true,
-        filesystem = {
-          filtered_items = {
-            visible = false,
-            hide_dotfiles = false,
-            hide_gitignored = false,
-          },
-          follow_current_file = {
-            enabled = true,
-          },
-          hijack_netrw_behavior = "open_default",
-          use_libuv_file_watcher = true,
-        },
-        window = {
-          position = "left",
-          width = 40,
-          mappings = {
-            ["h"] = function(state)
-              local node = state.tree:get_node()
-              if node.type == "directory" and node:is_expanded() then
-                require("neo-tree.sources.filesystem").toggle_directory(state, node)
-              else
-                require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
-              end
-            end,
-            ["l"] = function(state)
-              local node = state.tree:get_node()
-              if node.type == "directory" then
-                if not node:is_expanded() then
-                  require("neo-tree.sources.filesystem").toggle_directory(state, node)
-                else
-                  require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
-                end
-              else
-                require("neo-tree.sources.filesystem").component_on_enter(state)
-              end
-            end,
-          },
-        },
+      -- Map tab to accept copilot suggestions
+      vim.g.copilot_no_tab_map = true
+      vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+        expr = true,
+        replace_keycodes = false,
       })
+      vim.g.copilot_filetypes = {
+        ["*"] = false,
+        ["javascript"] = true,
+        ["typescript"] = true,
+        ["lua"] = true,
+        ["rust"] = true,
+        ["c"] = true,
+        ["c#"] = true,
+        ["c++"] = true,
+        ["go"] = true,
+        ["python"] = true,
+      }
     end,
   }
 }

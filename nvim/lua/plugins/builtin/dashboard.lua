@@ -1,7 +1,5 @@
 ---@diagnostic disable: missing-fields
-
 local stdpath = vim.fn.stdpath('config')
-
 local function pushConfig()
 	vim.fn.system("git -C " .. stdpath .. " add .")
 	vim.fn.system("git -C " .. stdpath .. " commit -m 'Dashboard config push'")
@@ -14,7 +12,6 @@ local function pushConfig()
 		vim.notify("Config pushed!", vim.log.levels.INFO, { title = "42-Nvim" })
 	end
 end
-
 local function pullConfig()
 	local ret = vim.fn.system("git -C " .. stdpath .. " pull")
 	if (vim.v.shell_error ~= 0) then
@@ -25,7 +22,6 @@ local function pullConfig()
 		vim.notify("Config pulled!", vim.log.levels.INFO, { title = "42-Nvim" })
 	end
 end
-
 local function fetchUpstream()
 	if not string.find(vim.fn.system("git -C " .. stdpath .. " remote -v"), "upstream") then
 		vim.fn.system("git -C " .. stdpath .. " remote add upstream https://github.com/fclivaz42/42-nvim.git")
@@ -40,7 +36,6 @@ local function fetchUpstream()
 		vim.notify("Config updated!\n Don't forget to push and restart :)", vim.log.levels.INFO, { title = "42-Nvim" })
 	end
 end
-
 return {
 	'nvimdev/dashboard-nvim',
 	event = 'VimEnter',
@@ -51,34 +46,32 @@ return {
 			config = {
 				disable_move = true,
 				header = {
-    				'',
-    				' █🮠██╮██████🮢      ███   ██╮██╮   ██╮██┐███  ███╮',
-    				'█🮠 ██│    ██│      ████  ██│██│   ██│██│████████│',
-    				'██████│█████🮠█████╮████ ██│█🮢 █🮠██│████████│',
-    				'     ██│██🮣──🮠 ╰────╯██│████│ ██🮠 ██│██│██🮠██│',
-    				'     ██│███████╮      ██│ ████│  ██🮠  ██│██│ 🮡─🮠 ██│',
-   					'     ╰─╯╰──────╯      ╰─╯  🮡───╯   🮡─🮠   ╰─╯╰─╯     ╰─╯',
-    				'',
-    				' ▗▄▄▖ ▗▄▖ ▗▖  ▗▖ ▗▄▖ ▗▖   ▗▄▄▄▖',
-    				'▐▌   ▐▌ ▐▌▐▌  ▐▌▐▌ ▐▌▐▌     █  ',
-    				'▐▌   ▐▛▀▜▌▐▌  ▐▌▐▛▀▜▌▐▌     █  ',
-    				'▝▚▄▄▖▐▌ ▐▌ ▝▚▞▘ ▐▌ ▐▌▐▙▄▄▖▗▄█▄▖',
 					'',
+					'                      -`                    ',
+					'                     .o+`                   ',
+					'                    `ooo/                   ',
+					'                   `+oooo:                  ',
+					'                  `+oooooo:                 ',
+					'                  -+oooooo+:                ',
+					'                `/:-:++oooo+:               ',
+					'               `/++++/+++++++:              ',
+					'              `/++++++++++++++:             ',
+					'             `/+++ooooooooooooo/`           ',
+					'            ./ooosssso++osssssso+`          ',
+					'           .oossssso-````/ossssss+`         ',
+					'          -osssssso.      :ssssssso.        ',
+					'         :osssssss/        osssso+++.       ',
+					'        /ossssssss/        +ssssooo/-       ',
+					'      `/ossssso+/:-        -:/+osssso+-     ',
+					'     `+sso+:-`                 `.-/+oso:    ',
+					'    `++:.                           `-/+/   ',
+					'    .`                                 `    ',
 					'',
 				},
 				hide = {
 					statusline = true,
 					tabline = true,
 					winbar = true
-				},
-				shortcut = {
-					{
-						icon = '󰑓 ',
-						desc = 'Update 42-Nvim',
-						group = 'Label',
-						action = fetchUpstream,
-						key = 'U',
-					},
 				},
 				project = {
 					action = 'Neotree focus filesystem left reveal_force_cwd=true dir=',

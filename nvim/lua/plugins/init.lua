@@ -35,3 +35,13 @@ require('lazy').setup({
 	-- And then load every theme.
 	{	import = 'plugins.themes'	}
 })
+
+return {
+  -- Your existing plugins here...
+  -- Add GitHub Copilot
+  {
+    "github/copilot.vim",
+    event = "InsertEnter",
+  },
+  -- ... rest of your existing plugins
+}

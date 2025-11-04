@@ -11,5 +11,5 @@ require("norminette").setup({
 	maxErrorsToShow = 15,
 	-- NOTE: Edit this to true if you want integrated Normiette!
 	-- Make sure to have it installed first (eg. with pip)
-	active = false,
+	active = true,
 })

@@ -35,6 +35,25 @@ require "plugins"
 -- Load config/init.lua which will load every plugin configuration.
 require "config"
 
+-- Add GitHub Copilot configuration
+vim.g.copilot_no_tab_map = true
+vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+vim.g.copilot_filetypes = {
+  ["*"] = false,
+  ["javascript"] = true,
+  ["typescript"] = true,
+  ["lua"] = true,
+  ["rust"] = true,
+  ["c"] = true,
+  ["c#"] = true,
+  ["c++"] = true,
+  ["go"] = true,
+  ["python"] = true,
+}
+
 -- Launch! :)
 if (vim.g.user42 == nil) then
 	vim.g.user42 = vim.env.USER
@@ -55,28 +74,22 @@ if vim.g.receiveupdates == true then
 			if code == 0 then
 				local mainc = vim.fn.system('git -C ' .. stdpath .. ' rev-list --count HEAD..upstream/main')
 
-				--if mainc ~= '0\n' then
-				--	vim.notify("Update available!", vim.log.levels.WARN, { title = "42-Nvim" })
-				--end
+				if mainc ~= '0\n' then
+					vim.notify("Update available!", vim.log.levels.WARN, { title = "42-Nvim" })
+				end
+			else
+				vim.notify("Could not fetch upstream for updates.", vim.log.levels.WARN, { title = "42-Nvim" })
 			end
 		end
 		))
 end
 
-vim.cmd [[
-  hi Normal guibg=NONE ctermbg=NONE
-  hi NormalNC guibg=NONE ctermbg=NONE
-  hi SignColumn guibg=NONE
-  hi LineNr guibg=NONE
-  hi EndOfBuffer guibg=NONE
-]]
 
---if (vim.g.user42 ~= "achahi") then
---	vim.notify("Welcome back " .. vim.g.user42 .. "! :)\nUse 'space-T' to switch between themes.", vim.log.levels.INFO,
---		{ title = "42-Nvim" })
---else
---	vim.notify("If you see this you haven't configured your stuff!\nDon't forget to take a peek at your ~/.config/nvim",
---		vim.log.levels.ERROR, { title = "42-Nvim" })
---end
---
---
+-- Add this to your init.lua before the "Launch!" section
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_filetypes = { ['*'] = true }
+vim.g.copilot_enabled = true
+
+-- Force ghost text to be visible
+vim.api.nvim_set_hl(0, 'CopilotSuggestion', { fg = '#808080' })
+

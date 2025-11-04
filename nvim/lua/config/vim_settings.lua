@@ -5,7 +5,7 @@
 
 -- Would you like to be notified whenever 42-Nvim has an update available?
 -- NOTE: 42-Nvim will never update without your explicit order!
-vim.g.receiveupdates = true
+vim.g.receiveupdates = false
 
 -- Would you like 42-Nvim to automatically open binray files with system apps?
 vim.g.smartopen = true
@@ -129,3 +129,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	group = highlight_group,
 	pattern = '*',
 })
+
+-- Transparency settings
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })

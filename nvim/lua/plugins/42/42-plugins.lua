@@ -1,17 +1,20 @@
 return {
-	-- NOTE: Since I am from Lausanne, I have my own custom header.
-	-- If you are not from lausanne or use a different header,
-	-- feel free to comment the following line and add yours!
-	-- I added the default one for good measure.
-	-- WARN: I would *highly* recommend you uncomment the branch
-	-- 'stdheader-fixes' instead of using the 42Paris branch!
-	-- I have added a few useful patches to the header in that branch
-	-- WITHOUT the Lausanne watermark.
-
+	-- 42 Header (uncommented the stdheader-fixes branch)
 	{
 		'fclivaz42/42header-ls',
-		branch = 'stdheader-fixes' --Uncomment this if you are not from Lausanne!
+		branch = 'stdheader-fixes' -- Uncommented for non-Lausanne users
 	},
-	 "42Paris/42header",
-	"hardyrafael17/norminette42.nvim"
+	
+	-- Norminette plugin
+	{
+		"hardyrafael17/norminette42.nvim",
+		config = function()
+			require('norminette').setup({
+				-- Enable norminette on save
+				runOnSave = true,
+				-- Show errors in diagnostics
+				showErrors = true,
+			})
+		end,
+	}
 }
